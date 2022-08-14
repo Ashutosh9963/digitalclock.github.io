@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="DigitalClock.css" />
+  </head>
+
+  <body>
+    <div id="div">
+      <h2 id="head">
+        <b><i>DIGI CLOCK</i></b>
+      </h2>
+      <h1 id="clock"></h1>
+      <h3 id="date12"></h3>
+      <h3 id="date13"></h3>
+    </div>
+
+    <script>
+      function currentTime() {
+        let date = new Date();
+        let hh = date.getHours();
+        let mm = date.getMinutes();
+        let ss = date.getSeconds();
+        let time = hh + ":" + mm + ":" + ss + " ";
+        let dy = date.getDay();
+        let dd = date.getDate();
+        let mo = date.getMonth();
+        let yy = date.getFullYear();
+        let date1 = dd + "-" + mo + "-" + yy + " ";
+        let day = dy;
+        switch (new Date().getDay()) {
+          case 0:
+            day = "Sunday";
+            break;
+          case 1:
+            day = "Monday";
+            break;
+          case 2:
+            day = "Tuesday";
+            break;
+          case 3:
+            day = "Wednesday";
+            break;
+          case 4:
+            day = "Thursday";
+            break;
+          case 5:
+            day = "Friday";
+            break;
+          case 6:
+            day = "Saturday";
+            break;
+          default:
+            day = "You are not on Earth, come back Bro!!!";
+        }
+        document.getElementById("date12").innerHTML = date1;
+        document.getElementById("date13").innerHTML = day;
+        document.getElementById("clock").innerHTML = time;
+        let t = setTimeout(function () {
+          currentTime();
+        }, 1000);
+      }
+      currentTime();
+    </script>
+  </body>
+</html>
